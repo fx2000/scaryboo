@@ -5,14 +5,6 @@ const { check, validationResult } = require('express-validator');
 // Load models
 const User = require('../models/User');
 
-// Load middleware
-const { notLoggedIn } = require('../middlewares/auth');
-
-/* GET users listing. */
-router.get('/', (req, res, next) => {
-  res.send('respond with a resource');
-});
-
 // POST User registration
 router.post('/register', [
   check('name').isLength({ min: 3 }),
@@ -51,22 +43,17 @@ router.post('/register', [
       ]
     });
     if (user !== null) {
-      res.render('index', { error: 'You are already registered fot this event, check your email for more information'});
+      req.session.currentUser = user;
+      res.redirect('../success');
     }
     // Save new user to database
     const newUser = await User.create(newUserData);
-
+    // req.session.destroy();
     req.session.currentUser = newUser;
-    res.redirect('/success');
+    res.redirect('../success');
   } catch (error) {
     next(error);
   }
-});
-
-// GET Success page
-router.get('/success', notLoggedIn, async (req, res, next) => {
-  const user = req.session.currentUser;
-  res.render('success', { user });
 });
 
 module.exports = router;
