@@ -1,6 +1,15 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
 #fondo {
-  background-image: url('fondo-01.png');
-  height: 100vh;
+  background-image: url('/images/fondo-01.png');
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   /* You must set a specified height */
   background-position: center;
   /* Center the image */
@@ -8,17 +17,13 @@
   /* Do not repeat the image */
   background-size: cover;
   background-position: fixed;
-
 }
-
 
 .bruja {
   width: 10%;
   margin-top: 60px;
   transform: translateX(-1200px);
   animation: bruja 15s ease 2s;
-
-
 }
 
 .bat-container {
@@ -43,7 +48,7 @@
 
 .bat {
   background-size: 2250px 170px;
-  background-image: url('bat_negro.svg');
+  background-image: url('/images/bat_negro.svg');
   height: 170px;
   width: 125px;
   animation: flapping .4s steps(18) infinite alternate;
@@ -72,8 +77,6 @@
   background: black;
   animation: ease-in-out leg2 2s 0s infinite alternate both;
 }
-
-
 
 @keyframes wiggle {
   0% {
@@ -241,14 +244,11 @@
 
 }
 
-
 .c {
   transform: translateX(1200px);
   animation: entro3 15s ease 2s infinite;
 
 }
-
-
 
 @keyframes entro3 {
   0% {
@@ -271,7 +271,6 @@
   }
 
 }
-
 
 .container-card {
   display: flex;
