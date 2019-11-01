@@ -1,6 +1,7 @@
 body {
   margin: 0px;
   padding: 0px;
+  font-size: 16px;
 }
 
 #fondo {
@@ -272,7 +273,7 @@ body {
 
 }
 
-.container-card {
+.cards-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -299,4 +300,24 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.bg-trans {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.bg-dark {
+  background-color: #2a3d96;
+  color: white;
+}
+
+.container {
+  max-width: 50%;
 }
