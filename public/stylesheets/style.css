@@ -305,8 +305,9 @@ body {
 .main-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-content: center;
+  margin-top: 100px;
 }
 
 .bg-trans {
@@ -319,5 +320,13 @@ body {
 }
 
 .container {
-  max-width: 50%;
+  margin-top: 10px;
+  max-width: 50%
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    margin-top: 20px;
+    max-width: 80%
+  }
 }
