@@ -5,6 +5,9 @@ const { check, validationResult } = require('express-validator');
 // Load models
 const User = require('../models/User');
 
+// Load middleware
+const { notLoggedIn } = require('../middlewares/auth');
+
 /* GET users listing. */
 router.get('/', (req, res, next) => {
   res.send('respond with a resource');
@@ -58,6 +61,12 @@ router.post('/register', [
   } catch (error) {
     next(error);
   }
+});
+
+// GET Success page
+router.get('/success', notLoggedIn, async (req, res, next) => {
+  const user = req.session.currentUser;
+  res.render('success', { user });
 });
 
 module.exports = router;
